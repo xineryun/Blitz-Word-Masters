@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blitz Word Masters - The Ultimate Word Matching Challenge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B82F6',
+            secondary: '#60A5FA',
+            accent: '#2563EB',
+            dark: '#0F172A',
+            light: '#F0F7FF'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+      }
+      .hover-float {
+        transition: transform 0.3s ease;
+      }
+      .hover-float:hover {
+        transform: translateY(-5px) scale(1.02);
+      }
+      .btn-bounce {
+        transition: transform 0.2s ease;
+      }
+      .btn-bounce:hover {
+        transform: scale(1.05);
+      }
+      .btn-bounce:active {
+        transform: scale(0.98);
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-inter bg-light text-dark">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2">
+        <i class="fa fa-bolt text-primary text-2xl"></i>
+        <span class="font-bold text-xl">Blitz Word Masters</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="hover:text-accent transition-colors">About</a>
+        <a href="#features" class="hover:text-accent transition-colors">Features</a>
+        <a href="#download" class="hover:text-accent transition-colors">Download</a>
+        <a href="https://sites.google.com/view/blitz-word-privacy-policy" class="hover:text-accent transition-colors">Privacy</a>
+      </div>
+      <button class="md:hidden text-xl">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-primary/10 to-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2 space-y-6">
+          <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-shadow">
+            Blitz Word Masters <br>
+            <span class="text-accent">The Bilingual Word Battle Game</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-600 max-w-lg">
+            Still going crazy over the boredom of memorizing words? Try <strong>Blitz Word Masters</strong> — a Chinese-English bilingual matching game that perfectly combines “vocabulary learning” with “the thrill of matching.”  
+            Here, memorizing words is no longer rote learning but a <em>brain-burning challenge</em> where every swipe sharpens your mind.  
+            Master thousands of words easily while matching — the more you play, the more addicted you'll get!
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="https://play.google.com/store/apps/details?id=com.blitz.word.master.app" target="_blank" class="btn-bounce bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-full flex items-center gap-2 shadow-lg">
+              <i class="fa fa-download"></i>
+              <span>Download on Google Play</span>
+            </a>
+            <a href="#features" class="btn-bounce bg-white hover:bg-gray-100 text-dark font-medium px-8 py-3 rounded-full flex items-center gap-2 shadow-md border border-gray-200">
+              <i class="fa fa-gamepad"></i>
+              <span>Explore Features</span>
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-primary/30 rounded-3xl rotate-3"></div>
+            <img src="https://picsum.photos/seed/blitzword/600/400" alt="Blitz Word Masters app interface" class="relative z-10 rounded-2xl shadow-2xl hover-float">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">About Blitz Word Masters</h2>
+        <p class="text-gray-600 text-lg">Where bilingual learning meets gaming adrenaline. Turn vocabulary drills into fast-paced fun!</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow hover-float">
+          <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-language text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Bilingual Word Learning</h3>
+          <p class="text-gray-600">
+            Combine Chinese and English in a thrilling matching format that strengthens vocabulary, recognition, and reflexes simultaneously.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow hover-float">
+          <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-bolt text-2xl text-accent"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Fast-Paced Gameplay</h3>
+          <p class="text-gray-600">
+            Forget dull flashcards — every level is an exciting “match-and-learn” challenge that keeps your brain engaged and your memory sharp.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-16 md:py-24 bg-gradient-to-b from-white to-primary/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">Core Features</h2>
+        <p class="text-gray-600 text-lg">Discover what makes Blitz Word Masters so addictive.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover-float">
+          <h3 class="text-xl font-semibold mb-3 text-primary">⚡ Dual-Language Matching Mode</h3>
+          <p class="text-gray-600">
+            Instantly connect words and meanings across Chinese and English — sharpen your bilingual vocabulary with every match.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover-float">
+          <h3 class="text-xl font-semibold mb-3 text-accent">🧠 Memory Boost Challenges</h3>
+          <p class="text-gray-600">
+            Progress through increasing difficulty levels that test speed, focus, and word recall — turning study time into a game of skill.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="py-16 md:py-24 bg-primary/10">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-6">Download & Start Playing</h2>
+      <p class="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
+        Challenge your mind, expand your vocabulary, and enjoy the thrill of bilingual word matching.  
+        Download <strong>Blitz Word Masters</strong> now and transform learning into a game you’ll love!
+      </p>
+      <a href="https://play.google.com/store/apps/details?id=com.blitz.word.master.app" target="_blank" class="btn-bounce inline-block bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-full text-lg shadow-xl flex items-center gap-3 mx-auto">
+        <i class="fa fa-android text-2xl"></i>
+        <span>Download on Google Play</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-2">
+          <i class="fa fa-bolt text-primary text-2xl"></i>
+          <span class="font-bold text-xl">Blitz Word Masters</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a href="#about" class="hover:text-primary transition-colors">About</a>
+          <a href="#features" class="hover:text-primary transition-colors">Features</a>
+          <a href="#download" class="hover:text-primary transition-colors">Download</a>
+          <a href="https://sites.google.com/view/blitz-word-privacy-policy" target="_blank" class="hover:text-primary transition-colors">Privacy Policy</a>
+        </div>
+        <div class="text-gray-400 text-sm">
+          &copy; 2025 Blitz Word Masters. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        if (this.getAttribute('href') !== "#") {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('py-2', 'shadow');
+        nav.classList.remove('py-3');
+      } else {
+        nav.classList.add('py-3');
+        nav.classList.remove('py-2', 'shadow');
+      }
+    });
+  </script>
+
+</body>
+</html>
