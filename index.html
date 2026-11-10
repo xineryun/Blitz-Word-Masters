@@ -1,229 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blitz Word Masters - The Ultimate Word Matching Challenge</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#3B82F6',
-            secondary: '#60A5FA',
-            accent: '#2563EB',
-            dark: '#0F172A',
-            light: '#F0F7FF'
-          },
-          fontFamily: {
-            inter: ['Inter', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .text-shadow {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-      }
-      .hover-float {
-        transition: transform 0.3s ease;
-      }
-      .hover-float:hover {
-        transform: translateY(-5px) scale(1.02);
-      }
-      .btn-bounce {
-        transition: transform 0.2s ease;
-      }
-      .btn-bounce:hover {
-        transform: scale(1.05);
-      }
-      .btn-bounce:active {
-        transform: scale(0.98);
-      }
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#160e19">
+<meta name="description" content="Play interactive AI stories in Kiss Girl. Meet fictional characters, make choices in chat, and unlock collectible photo cards.">
+<title>Kiss Girl — AI Story Game</title>
+<link rel="icon" href="assets/app-icon.webp">
+<style>
+:root{color-scheme:dark;--ink:#fff5f8;--muted:#d4bfce;--rose:#ff93bd;--edge:#50354c;--base:#160e19}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--base);color:var(--ink);font:16px/1.6 system-ui,sans-serif}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}a:hover{color:var(--rose)}a:focus-visible{outline:3px solid var(--rose);outline-offset:5px}p,h1,h2,h3,figure{margin:0}.wrap{width:min(1152px,calc(100% - 56px));margin:auto}
+header,footer{background:#1b101d;border-bottom:1px solid var(--edge)}.nav,.footrow{display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:76px}.brand,.links,.actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.brand{gap:10px;font-weight:750;white-space:nowrap}.brand img{border-radius:11px}.links{color:var(--muted);font-size:.9rem}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:50px;padding:12px 19px;font-weight:750;line-height:1.25;border:1px solid #8c617d}.primary{background:#ff9bc1;color:#281020;border-color:transparent}.primary:hover{background:#ffc0d7;color:#281020}
+.hero{overflow:hidden;background:radial-gradient(ellipse at 76% 48%,#4b223f,#241526 50%,#160e19 79%);border-bottom:1px solid var(--edge)}.hero-grid{min-height:620px;padding:55px 0;display:grid;grid-template-columns:1.08fr 1fr;align-items:center;gap:34px}.kicker{color:var(--rose);font-size:.73rem;letter-spacing:.17em;font-weight:800;text-transform:uppercase}h1,h2{font-family:Georgia,serif;font-weight:500;line-height:1.01;letter-spacing:-.055em}h1{font-size:clamp(3.3rem,7vw,6.7rem);margin:17px 0 22px}h1 em{color:var(--rose)}h2{font-size:clamp(2.45rem,5vw,4.35rem);margin:10px 0 14px}.intro,.lede{color:var(--muted);max-width:53ch}.intro{font-size:1.12rem}.actions{margin:27px 0 13px;gap:12px}.fine{color:var(--muted);font-size:.8rem}
+.art{position:relative;display:grid;place-items:center;isolation:isolate;min-width:0;padding:18px 0 12px}.halo{position:absolute;width:93%;aspect-ratio:1;border:1px solid #a9688c;border-radius:50%;opacity:.45;z-index:-1}.halo::after{content:"";position:absolute;inset:11%;border:1px dashed #bb799e;border-radius:inherit}.pair{display:flex;justify-content:center;width:84%}.pair img{width:52%;height:auto;aspect-ratio:9/16;border:1px solid #a65d88;border-radius:18px;background:#311a32;box-shadow:0 22px 52px #0e0712aa;transform:rotate(-8deg) translate(6%,5%)}.pair img+img{transform:rotate(8deg) translate(-4%,-2%)}.star{position:absolute;color:#ffd0ad;font-size:1.85rem}.star.one{left:4%;top:22%}.star.two{right:4%;bottom:19%}.art figcaption{margin-top:29px;color:#f0c9df;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
+.section{padding:78px 0}.heading{margin-bottom:29px}.cards,.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{padding:25px;background:linear-gradient(135deg,#342239,#221523);border:1px solid var(--edge);border-radius:19px}.card:nth-child(2){background:linear-gradient(135deg,#2d2840,#221523)}.card:nth-child(3){background:linear-gradient(135deg,#402537,#221523)}.card h3{font:500 2.1rem Georgia,serif;margin:13px 0 8px}.card p,.step p,.extra{color:var(--muted);font-size:.95rem}
+.gallery{background:#211423;border-block:1px solid var(--edge)}.shots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.shots figure{min-width:0}.shots a{display:block;border:1px solid #68465e;border-radius:14px;overflow:hidden;background:#311a32}.shots a:hover{border-color:var(--rose)}.shots a:focus-visible{outline-offset:-4px}.shots img{width:100%;height:auto;aspect-ratio:9/16}.shots figcaption{font-size:.83rem;color:var(--muted);padding-top:10px}.step{border-top:1px solid var(--edge);padding:15px 10px 0 0}.step h3{margin:8px 0 6px}.extra{margin-top:22px;max-width:78ch}
+.download{text-align:center;padding:53px 22px;background:radial-gradient(ellipse at 50% 100%,#5b2549,#2b182e 73%);border:1px solid #79506e;border-radius:24px}.download .button{margin:21px 0 13px}.download .lede{margin:auto}footer{margin-top:55px;padding:21px 0 30px;border-top:1px solid var(--edge)}.disclosure{font-size:.81rem;color:var(--muted);max-width:78ch}
+@media(max-width:850px){.wrap{width:min(1152px,calc(100% - 36px))}.hero-grid{min-height:auto}.shots{grid-template-columns:repeat(5,minmax(140px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}.shots figure{scroll-snap-align:start}}
+@media(max-width:650px){.nav{min-height:64px}.nav .links{display:none}.nav .button{font-size:.84rem;padding:9px 13px}.hero-grid{grid-template-columns:1fr;padding:43px 0 27px}.art{max-width:370px;width:100%;margin:auto}.section{padding:54px 0}.cards,.steps{grid-template-columns:1fr}.footrow{align-items:flex-start;flex-direction:column;padding:8px 0 16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
-
-<body class="font-inter bg-light text-dark">
-
-  <!-- Navigation -->
-  <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-2">
-        <i class="fa fa-bolt text-primary text-2xl"></i>
-        <span class="font-bold text-xl">Blitz Word Masters</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#about" class="hover:text-accent transition-colors">About</a>
-        <a href="#features" class="hover:text-accent transition-colors">Features</a>
-        <a href="#download" class="hover:text-accent transition-colors">Download</a>
-        <a href="https://sites.google.com/view/blitz-word-privacy-policy" class="hover:text-accent transition-colors">Privacy</a>
-      </div>
-      <button class="md:hidden text-xl">
-        <i class="fa fa-bars"></i>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-primary/10 to-white">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2 space-y-6">
-          <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-shadow">
-            Blitz Word Masters <br>
-            <span class="text-accent">The Bilingual Word Battle Game</span>
-          </h1>
-          <p class="text-lg md:text-xl text-gray-600 max-w-lg">
-            Still going crazy over the boredom of memorizing words? Try <strong>Blitz Word Masters</strong> — a Chinese-English bilingual matching game that perfectly combines “vocabulary learning” with “the thrill of matching.”  
-            Here, memorizing words is no longer rote learning but a <em>brain-burning challenge</em> where every swipe sharpens your mind.  
-            Master thousands of words easily while matching — the more you play, the more addicted you'll get!
-          </p>
-          <div class="flex flex-wrap gap-4 pt-4">
-            <a href="https://play.google.com/store/apps/details?id=com.blitz.word.master.app" target="_blank" class="btn-bounce bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-full flex items-center gap-2 shadow-lg">
-              <i class="fa fa-download"></i>
-              <span>Download on Google Play</span>
-            </a>
-            <a href="#features" class="btn-bounce bg-white hover:bg-gray-100 text-dark font-medium px-8 py-3 rounded-full flex items-center gap-2 shadow-md border border-gray-200">
-              <i class="fa fa-gamepad"></i>
-              <span>Explore Features</span>
-            </a>
-          </div>
-        </div>
-        <div class="md:w-1/2">
-          <div class="relative">
-            <div class="absolute -inset-4 bg-primary/30 rounded-3xl rotate-3"></div>
-            <img src="https://picsum.photos/seed/blitzword/600/400" alt="Blitz Word Masters app interface" class="relative z-10 rounded-2xl shadow-2xl hover-float">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16 md:py-24">
-    <div class="container mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">About Blitz Word Masters</h2>
-        <p class="text-gray-600 text-lg">Where bilingual learning meets gaming adrenaline. Turn vocabulary drills into fast-paced fun!</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow hover-float">
-          <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
-            <i class="fa fa-language text-2xl text-primary"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Bilingual Word Learning</h3>
-          <p class="text-gray-600">
-            Combine Chinese and English in a thrilling matching format that strengthens vocabulary, recognition, and reflexes simultaneously.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow hover-float">
-          <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6">
-            <i class="fa fa-bolt text-2xl text-accent"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Fast-Paced Gameplay</h3>
-          <p class="text-gray-600">
-            Forget dull flashcards — every level is an exciting “match-and-learn” challenge that keeps your brain engaged and your memory sharp.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="py-16 md:py-24 bg-gradient-to-b from-white to-primary/5">
-    <div class="container mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">Core Features</h2>
-        <p class="text-gray-600 text-lg">Discover what makes Blitz Word Masters so addictive.</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover-float">
-          <h3 class="text-xl font-semibold mb-3 text-primary">⚡ Dual-Language Matching Mode</h3>
-          <p class="text-gray-600">
-            Instantly connect words and meanings across Chinese and English — sharpen your bilingual vocabulary with every match.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover-float">
-          <h3 class="text-xl font-semibold mb-3 text-accent">🧠 Memory Boost Challenges</h3>
-          <p class="text-gray-600">
-            Progress through increasing difficulty levels that test speed, focus, and word recall — turning study time into a game of skill.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Download Section -->
-  <section id="download" class="py-16 md:py-24 bg-primary/10">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-6">Download & Start Playing</h2>
-      <p class="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
-        Challenge your mind, expand your vocabulary, and enjoy the thrill of bilingual word matching.  
-        Download <strong>Blitz Word Masters</strong> now and transform learning into a game you’ll love!
-      </p>
-      <a href="https://play.google.com/store/apps/details?id=com.blitz.word.master.app" target="_blank" class="btn-bounce inline-block bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-full text-lg shadow-xl flex items-center gap-3 mx-auto">
-        <i class="fa fa-android text-2xl"></i>
-        <span>Download on Google Play</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-        <div class="flex items-center gap-2">
-          <i class="fa fa-bolt text-primary text-2xl"></i>
-          <span class="font-bold text-xl">Blitz Word Masters</span>
-        </div>
-        <div class="flex flex-wrap justify-center gap-6">
-          <a href="#about" class="hover:text-primary transition-colors">About</a>
-          <a href="#features" class="hover:text-primary transition-colors">Features</a>
-          <a href="#download" class="hover:text-primary transition-colors">Download</a>
-          <a href="https://sites.google.com/view/blitz-word-privacy-policy" target="_blank" class="hover:text-primary transition-colors">Privacy Policy</a>
-        </div>
-        <div class="text-gray-400 text-sm">
-          &copy; 2025 Blitz Word Masters. All rights reserved.
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        if (this.getAttribute('href') !== "#") {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('py-2', 'shadow');
-        nav.classList.remove('py-3');
-      } else {
-        nav.classList.add('py-3');
-        nav.classList.remove('py-2', 'shadow');
-      }
-    });
-  </script>
-
+<body>
+<header id="top"><nav class="wrap nav" aria-label="Main navigation">
+<a class="brand" href="#top"><img src="assets/app-icon.webp" width="40" height="40" alt="">Kiss Girl</a>
+<div class="links"><a href="#stories">Stories</a><a href="#screenshots">Screenshots</a><a href="#how-to-play">How to play</a></div>
+<a class="button" href="https://play.google.com/store/apps/details?id=com.blitz.word.master.app">Get the app ↗</a>
+</nav></header>
+<main>
+<section class="hero" aria-labelledby="title"><div class="wrap hero-grid">
+<div><p class="kicker">Kiss Girl · Interactive AI Story Game</p>
+<h1 id="title">Your reply.<br><em>Her next chapter.</em></h1>
+<p class="intro">Meet fictional characters, make choices through chat, and see where each story takes you. Play through chapters to unlock collectible photo cards.</p>
+<div class="actions"><a class="button primary" href="https://play.google.com/store/apps/details?id=com.blitz.word.master.app"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M5 2.5 22 12 5 21.5Z"/></svg>Get it on Google Play</a><a class="button" href="#stories">Explore the stories ↓</a></div>
+<p class="fine">Android · Contains ads and in-app purchases</p></div>
+<figure class="art"><span class="halo" aria-hidden="true"></span><span class="star one" aria-hidden="true">✦</span><span class="star two" aria-hidden="true">✧</span>
+<div class="pair"><img src="assets/chat.webp" width="432" height="768" alt="In-game text conversation with Amandine"><img src="assets/stories.webp" width="432" height="768" alt="Explore screen showing Hana’s opening story"></div>
+<figcaption>From the Google Play listing</figcaption></figure>
+</div></section>
+<section class="wrap section" id="stories">
+<div class="heading"><p class="kicker">01 / The stories</p><h2>Who will you meet first?</h2><p class="lede">Pick a character and open her first chapter. Your replies help shape what happens next.</p></div>
+<div class="cards">
+<article class="card"><span class="kicker">Lyon · France</span><h3>Amandine</h3><p>Help her save her grandmother’s bakery in Lyon.</p></article>
+<article class="card"><span class="kicker">Museum archives</span><h3>Hana</h3><p>Follow her into a museum archive and investigate the mystery hidden there.</p></article>
+<article class="card"><span class="kicker">Milan · Italy</span><h3>Giulia</h3><p>Get to know her as she juggles an office job and a secret basement band.</p></article>
+</div></section>
+<section class="gallery section" id="screenshots"><div class="wrap">
+<div class="heading"><p class="kicker">02 / In the app</p><h2>A look inside Kiss Girl.</h2><p class="lede">Browse the official screenshots. Select any image to open a larger view.</p></div>
+<div class="shots"><figure><a href="assets/chat.webp" target="_blank" rel="noopener"><img src="assets/chat.webp" width="432" height="768" loading="lazy" alt="Enlarge screenshot: Chat with characters"></a><figcaption>01 · Chat with characters</figcaption></figure>
+<figure><a href="assets/stories.webp" target="_blank" rel="noopener"><img src="assets/stories.webp" width="432" height="768" loading="lazy" alt="Enlarge screenshot: Explore their stories"></a><figcaption>02 · Explore their stories</figcaption></figure>
+<figure><a href="assets/photo-cards.webp" target="_blank" rel="noopener"><img src="assets/photo-cards.webp" width="432" height="768" loading="lazy" alt="Enlarge screenshot: Unlock photo cards"></a><figcaption>03 · Unlock photo cards</figcaption></figure>
+<figure><a href="assets/secret-albums.webp" target="_blank" rel="noopener"><img src="assets/secret-albums.webp" width="432" height="768" loading="lazy" alt="Enlarge screenshot: Discover Secret Albums"></a><figcaption>04 · Discover Secret Albums</figcaption></figure>
+<figure><a href="assets/game-preview.webp" target="_blank" rel="noopener"><img src="assets/game-preview.webp" width="432" height="768" loading="lazy" alt="Enlarge screenshot: More from the game"></a><figcaption>05 · More from the game</figcaption></figure></div>
+</div></section>
+<section class="wrap section" id="how-to-play">
+<div class="heading"><p class="kicker">03 / How to play</p><h2>From first message to photo card.</h2></div>
+<div class="steps">
+<article class="step"><span class="kicker">Step 01</span><h3>Choose a character</h3><p>Find a story on the Explore screen, read the opening scene, and send your first message.</p></article>
+<article class="step"><span class="kicker">Step 02</span><h3>Play through the chapters</h3><p>Reply in chat and make choices to move the story forward and level up with your character.</p></article>
+<article class="step"><span class="kicker">Step 03</span><h3>Build your collection</h3><p>Unlock photo cards as you level up and discover themed Secret Albums along the way.</p></article>
+</div>
+<p class="extra">Daily check-ins award free gems, with a bonus on Day 7. The game is available in English, Spanish, Portuguese, French, Indonesian, and Arabic.</p>
+</section>
+<section class="wrap download" aria-labelledby="download-title"><p class="kicker">Available on Android</p><h2 id="download-title">Start a new story.</h2><p class="lede">Choose a character and send your first message in Kiss Girl.</p><a class="button primary" href="https://play.google.com/store/apps/details?id=com.blitz.word.master.app"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M5 2.5 22 12 5 21.5Z"/></svg>Get it on Google Play</a><p class="fine">Intended for ages 18 and over.</p></section>
+</main>
+<footer><div class="wrap"><div class="footrow">
+<a class="brand" href="#top"><img src="assets/app-icon.webp" width="40" height="40" alt="">Kiss Girl · GirlStory</a>
+<div class="links"><a href="mailto:moizteater494@gmail.com">App support</a><a href="https://sites.google.com/view/blitz-word-privacy-policy">Privacy policy</a><a href="https://play.google.com/store/apps/details?id=com.blitz.word.master.app">Google Play ↗</a></div>
+</div><p class="disclosure">Characters, stories, replies, and images are AI-generated and fictional. Kiss Girl is for entertainment. Keep personal details out of messages and use Report Content in Settings to flag inappropriate content.</p></div></footer>
 </body>
 </html>
