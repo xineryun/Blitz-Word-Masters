@@ -742,17 +742,13 @@ rubiconproject.com,18364,RESELLER,0bfd66d529a55807
 #indexexchange
 indexexchange.com,216408,RESELLER,50b1c356f2c5c8fc
 
+
 #Updated 31.03.2026
 #Appodeal
-appodeal.com, 440259, DIRECT
+appodeal.com, 440285, DIRECT
 #BidMachine
 bidmachine.io,1,DIRECT
 bidmachine.io,466,DIRECT
-#AdMob
-
-#Meta-Audience
-
-#Add other networks if applicable
 #Resellers
 152media.info, 152M312, RESELLER
 152media.info, 152M499, RESELLER
